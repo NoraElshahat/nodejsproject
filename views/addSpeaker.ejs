@@ -1,0 +1,78 @@
+<html>
+    <head>
+
+        <!-- _id:Number,
+        fullname:String,
+        username:String,
+        password:Number,
+        age:Number,
+        address:{
+    
+            city:String,
+            street:Number,
+            building:Number
+        }
+     -->
+    
+    </head>
+
+    <body>
+
+        <form method="post" action="/speakers/add"> 
+
+            
+            Id :<input type="text" name="_id">                   
+            <br>
+            <br>
+            <br>
+
+            UserName :<input type="text" name="username">
+            <br>
+            <br>
+
+            Password :<input type="password" name="password">
+
+            <br>
+            <br>
+            <br>
+            
+            Age :<input type="text" name="age">
+
+            
+            <br>
+            <br>
+            <br>
+
+            city :<input type="text" name="address.city">
+
+            
+            <br>
+            <br>
+            <br>
+
+            street :<input type="number" name="address.street">
+
+            
+            <br>
+            <br>
+            <br>
+
+            building :<input type="number" name="address.building">
+
+            
+            <br>
+            <br>
+            <br>
+
+
+            <input type="submit" value="register">
+
+
+
+        </form>
+
+
+    </body>
+
+
+</html>

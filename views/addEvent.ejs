@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+
+      
+    </head>
+
+
+
+    <body>
+
+        <form method="post" action="/events/add"> 
+            <h1></h1>
+            
+           
+            Id :<input type="text" name="_id" value="<%= data[0]._id %>" />
+            <br>
+            <br>
+            <br>
+
+            Title :<input type="text" name="title" value="<%=data[0].title%>">
+            <br>
+            <br>
+
+            mainSpeaker :
+            <select class="mdb-select md-form"  name="mainSpeaker">
+                <option value="" disabled>Choose your option</option>
+                
+                <% speaker.forEach((item)=>{ %>
+
+                    <% if(item.username==data[0].mainSpeaker.username){%>
+
+                        <option value = "<%=item._id%>" selected ><%=item.username%></option>
+
+                    <%;}%>
+
+                    <% if(item.username!==data[0].mainSpeaker.username){%>
+
+                        <option value = "<%=item._id%>"><%=item.username%></option>
+
+                    <%;}%>
+
+                <%});%>
+
+                
+              </select>
+            
+
+            <br>
+            <br>
+            <br>
+            
+            otherSpeakers :
+            <select class="mdb-select md-form"  name="otherSpeaker" multiple>
+                <option value="" disabled>Choose your option</option>
+                
+               <%speaker.forEach((item)=>{%>
+
+                    <option value="<%=item._id%>"><%= item.username%></option>
+
+                <%})%>;
+
+                
+              </select>
+
+            
+            <br>
+            <br> 
+            
+
+            <input type="submit" value="Edit">
+
+
+        </form>
+
+
+    </body>
+
+
+</html>

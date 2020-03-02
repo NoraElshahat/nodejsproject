@@ -1,0 +1,80 @@
+<html>
+
+    <head>
+    
+       <script src="/jquery/dist/jquery.min.js"></script> 
+       
+       <%- include ('head'); -%>
+       
+       <script>
+
+        function deleteRow(ID,Obj)
+        {
+        $.ajax({
+    
+            url:"http://localhost:8082/events/delete/"+ID,
+            dataType:"text",
+            method:"get",
+           success:function(result){
+    
+    
+                $(Obj).parents("tr").remove();
+            
+    
+           },
+    
+           error:function(error){
+    
+                console.log(error);
+           }
+           
+    
+        });
+    }
+    
+    </script>
+
+    </head>
+    <body>
+
+        <table>
+            <tr>
+                <td>id</td>
+                <td>Title</td>
+                <td>MainSpeaker</td>
+                <td>OtherSpeaker</td>
+               
+            </tr>
+
+           
+                <% eventData.forEach((item)=>{%>
+                    <tr> 
+                    <td><%= item._id%></td>
+                    <td><%= item.title%></td>
+                    <td><%= item.mainSpeaker.username%></td>
+                    
+                  <td>
+                    <select class="custom-select">
+                        <%item.otherSpeaker.forEach((name)=>{%>
+
+                        <option ><%=name.username %> </option>    
+                  
+                        <%});%>
+                    </select>
+
+                  </td>
+                    <td><a href="/events/update/<%= item._id%>" class="btn btn-primary">Edit</a></td>
+                    <td><a href="#" class="btn btn-danger" onclick="deleteRow(<%= item._id%>,this)">Delete</a></td>
+                   
+                    </tr>
+                <%});%>
+
+        </table>
+
+
+
+
+    </body>
+
+
+</html>

@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+
+      
+    </head>
+    
+
+
+
+    <body>
+
+        <form method="post" action="/events/add"> 
+
+            Id :<input type="text" name="_id">
+            <br>
+            <br>
+            <br>
+
+            Title :<input type="text" name="title">
+            <br>
+            <br>
+
+            mainSpeaker :<select name="mainSpeaker" >
+
+                <%speakerd.forEach((item)=>{%>
+
+                    <option value="<%=item._id %>"><%=item.username%></option>
+
+
+                <%});%>
+
+
+            </select>
+
+            <br>
+            <br>
+            <br>
+            
+            otherSpeakers :
+
+            <select class="mdb-select md-form" multiple name="otherSpeaker">
+                
+
+                <option value="" disabled selected>Choose your option</option>
+                <%speakerd.forEach((item)=>{%>
+
+                    <option value="<%=item.id %>"><%=item.username%></option>
+
+                <%});%>
+
+            </select>
+
+              Date :
+
+              <input type="date" name="dateInput">
+
+            
+            <br>
+            <br>
+            <br>
+
+
+            <input type="submit" value="Add">
+
+
+        </form>
+
+
+    </body>
+
+
+</html>

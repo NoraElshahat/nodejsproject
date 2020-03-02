@@ -1,0 +1,38 @@
+ <html>
+
+    <head>
+
+      <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+      <link rel="stylesheet" href="/css/speakerstyle.css">
+      
+      
+    </head>
+    <body> 
+
+      
+            
+
+ <form method="post" action="/speakers/update">
+
+    <div class="form-group">
+        <label style="color: white;">ID</label>
+        <input type="text" class="form-control" name="id" placeholder="ID" value="<%=data._id%>">
+      </div>
+
+    <div class="form-group">
+      <label style="color: white;">Name</label>
+      <input type="text" class="form-control" name="username" id="username" placeholder="Name" value="<%=data.username%>">
+    </div>
+  
+    <div class="form-group">
+        <label style="color: white;">Age</label>
+        <input type="text" class="form-control" name="age" id="age" placeholder="age" value="<%=data.age%>">
+
+    </div>
+   <button class="btn btn-warning">Edit</button>
+
+  </form> 
+
+
+</body>
+</html> 
