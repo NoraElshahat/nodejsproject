@@ -29,12 +29,12 @@ mongoose.connect("mongodb://localhost:27017/DatabaseLab")
 
    
 
-// server.use(function(request,response,next){
+server.use(function(request,response,next){
 
-// console.log("First Middle Ware",request.method, ": " , request.url);
-// next();
+console.log("First Middle Ware",request.method, ": " , request.url);
+next();
 
-// });
+});
 
 server.use(express.urlencoded({extended:false}));
 server.set("view engine","ejs");
@@ -65,9 +65,10 @@ server.use("/speakers",speakersRouter);
 server.use("/events",eventRouters);
 server.use("/admin",adminProfile);
 
-// server.use(function(request,response){
+server.use(function(request,response){
 
-// console.log("default Middel Ware");
-// });
+console.log("default Middel Ware");
+ next();
+});
 
 
